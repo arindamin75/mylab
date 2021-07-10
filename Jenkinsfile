@@ -12,10 +12,13 @@ pipeline{
             steps{
                 sh 'mvn clean install package'
             }
+        }
         
         stage ('Test'){
+            step{
 
-            echo (' testing ......')
+              echo (' testing ......')
+            }
         }
 
         stage ('Deploy'){
@@ -30,4 +33,3 @@ pipeline{
 
 
     }
-}
