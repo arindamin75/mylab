@@ -9,13 +9,14 @@ pipeline{
     stages {
 
         stage ('Build'){
-            steps {
+
+           steps {
                 sh 'mvn clean install package'
             }
         }
         
         stage ('Test'){
-            step {
+            steps {
 
               echo (' testing ......')
             }
