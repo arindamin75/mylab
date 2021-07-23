@@ -41,7 +41,7 @@ pipeline{
                 nexusArtifactUploader artifacts: 
                 [[artifactId: '${ArtifactId}', 
                 classifier: '', 
-                file: 'target/javaparser-maven-sample-1.2.6.jar', 
+                file: 'target/${ArtifactId}-${Version}.jar', 
                 type: 'jar']], 
                 credentialsId: 'e1203114-e235-4d68-a1cb-cbaa12f43233', 
                 groupId: '${GroupId}', 
@@ -49,7 +49,7 @@ pipeline{
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: '${NexusRepo}', 
-                version: '1.2.6-SNAPSHOT'
+                version: '${Version}'
               }
             }
         }
