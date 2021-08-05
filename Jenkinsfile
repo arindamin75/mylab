@@ -39,12 +39,12 @@ pipeline{
 
                 def NexusRepo = Version.endsWith("SNAPSHOT") ? "mylabdevops-snapshot" : "mylabdevops-release"   
                 nexusArtifactUploader artifacts: 
-                [[artifactId: '${ArtifactId}', 
+                [[artifactId: "${ArtifactId}", 
                 classifier: '', 
                 file: "target/${ArtifactId}-${Version}.jar", 
                 type: 'jar']], 
                 credentialsId: 'e1203114-e235-4d68-a1cb-cbaa12f43233', 
-                groupId: '${GroupId}', 
+                groupId: "${GroupId}", 
                 nexusUrl: '172.20.10.205:8081', 
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
