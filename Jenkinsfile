@@ -71,8 +71,8 @@ pipeline{
                 sshPublisher(publishers: 
                 [sshPublisherDesc(configName: 'Ansable_control', 
                 transfers: [sshTransfer(cleanRemote: false, 
-                excludes: 'ansible-playbook /opt/playbooks/downanddepl.yml -i hosts', 
-                execCommand: '', 
+                excludes: '', 
+                execCommand: 'ansible-playbook /opt/playbooks/downanddepl.yml -i hosts', 
                 execTimeout: 120000, 
                 flatten: false, 
                 makeEmptyDirs: false, 
