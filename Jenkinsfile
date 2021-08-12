@@ -68,6 +68,23 @@ pipeline{
             steps {
 
                 echo 'deploying....'
+                sshPublisher(publishers: 
+                [sshPublisherDesc(configName: 'Ansable_control', 
+                transfers: [sshTransfer(cleanRemote: false, 
+                excludes: 'ansible-playbook /opt/playbooks/downanddepl.yml -i hosts', 
+                execCommand: '', 
+                execTimeout: 120000, 
+                flatten: false, 
+                makeEmptyDirs: false, 
+                noDefaultExcludes: false, 
+                patternSeparator: '[, ]+', 
+                remoteDirectory: '', 
+                remoteDirectorySDF: false, 
+                removePrefix: '', 
+                sourceFiles: '')], 
+                usePromotionTimestamp: false, 
+                useWorkspaceInPromotion: false, 
+                verbose: false)])
             }
         }
 
