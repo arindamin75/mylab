@@ -78,6 +78,7 @@ pipeline{
                 verbose: false)])
             }
         }
+        }
 
         }
 
