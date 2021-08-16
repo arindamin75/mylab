@@ -63,7 +63,7 @@ pipeline{
                     }
                 }
 
-        stage ('Deploy'){
+        stage ('Deploy to Tomcat'){
 
             steps {
 
@@ -87,6 +87,33 @@ pipeline{
                 }
         
         }
+
+        stage ('Deploy to DOcker'){
+
+            steps {
+
+                echo 'deploying....'
+                sshPublisher(publishers: 
+                [sshPublisherDesc(configName: 'Ansable_control', 
+                transfers: [sshTransfer(cleanRemote: false, 
+                execCommand: 'ansible-playbook /opt/playbooks/downanddeploy_docker.yml -i /opt/playbooks/hosts', 
+                execTimeout: 120000, 
+                flatten: false, 
+                makeEmptyDirs: false, 
+                noDefaultExcludes: false, 
+                patternSeparator: '[, ]+', 
+                remoteDirectory: '', 
+                remoteDirectorySDF: false, 
+                removePrefix: '', 
+                sourceFiles: '')], 
+                usePromotionTimestamp: false, 
+                useWorkspaceInPromotion: false, 
+                verbose: false)])
+                }
+        
+        }
+
+        
 
         }
 
