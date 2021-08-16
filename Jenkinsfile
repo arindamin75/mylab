@@ -92,7 +92,7 @@ pipeline{
 
             steps {
 
-                echo 'deploying....'
+                echo 'deploying Docker'
                 sshPublisher(publishers: 
                 [sshPublisherDesc(configName: 'Ansable_control', 
                 transfers: [sshTransfer(cleanRemote: false, 
