@@ -62,12 +62,12 @@ pipeline{
                         echo "Name is '${Name}'"
                     }
                 }
-
+        // Stage 5 : Print some information
         stage ('Deploy to Tomcat'){
 
             steps {
 
-                echo 'deploying....'
+                echo 'deploying tomcat'
                 sshPublisher(publishers: 
                 [sshPublisherDesc(configName: 'Ansable_control', 
                 transfers: [sshTransfer(cleanRemote: false, 
